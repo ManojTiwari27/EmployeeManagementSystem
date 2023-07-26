@@ -1,0 +1,104 @@
+/* .bgcolor {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .bgcolor::before,
+  .bgcolor::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  
+  .bgcolor::before {
+    top: 0;
+    left: 0;
+    background-color: #ccf5ff;
+    animation: bounce 6s linear infinite;
+  }
+  
+  .bgcolor::after {
+    bottom: 0;
+    right: 0;
+    background-color: #0383a3d7;
+    animation: bounce-opposite 6s linear infinite;
+  } */
+/*   
+  @keyframes bounce {
+    0%, 100% {
+      top: 0;
+      left: 0;
+    }
+    25% {
+      top: calc(100% - 50px);
+      left: calc(100% - 50px);
+    }
+    50% {
+      top: calc(100% - 50px);
+      left: 0;
+    }
+    75% {
+      top: 0;
+      left: calc(100% - 50px);
+    }
+  } */
+
+/* @keyframes bounce-opposite {
+    0%, 100% {
+      bottom: 0;
+      right: 0;
+    }
+    25% {
+      bottom: calc(100% - 50px);
+      right: calc(100% - 50px);
+    }
+    50% {
+      bottom: calc(100% - 50px);
+      right: 0;
+    }
+    75% {
+      bottom: 0;
+      right: calc(100% - 50px);
+    }
+  } */
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.cardbgcolor {
+  background-color: #ccf5ff;
+}
+
+.button {
+  background-color: #ccf5ff;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #301612;
+  color: white;
+}
+
+.button:active {
+  background-color: #49201b;
+}
+.page {
+  min-height: 100vh;
+  max-height: 200vh;
+}
