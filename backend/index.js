@@ -20,7 +20,6 @@ app.listen(5000, () => {
 });
 
 
-
 // const db = mysql.createConnection({
 //   host: 'localhost',
 //   user: 'root',
@@ -215,6 +214,3 @@ app.listen(5000, () => {
 //     }
 //   });
 // });
-
-
-

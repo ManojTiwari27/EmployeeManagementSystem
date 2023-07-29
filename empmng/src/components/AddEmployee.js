@@ -201,7 +201,7 @@ export default function AddEmployee({ projects }) {
                     </select>
                 </div>
                 <div className="d-flex justify-content-center">
-                    <button type="button" className="btn" onClick={handleAdd} style={{backgroundColor: '#194a82', color:'white'}}>
+                    <button type="button" className="btn" onClick={handleAdd} style={{ backgroundColor: '#194a82', color: 'white' }}>
                         Add
                     </button>
                 </div>

@@ -1,0 +1,32 @@
+.calendar {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+td {
+  cursor: pointer;
+}
+
+td.selected {
+  background-color: rgb(25, 74, 130);
+  color: #fff;
+}
+
+table {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

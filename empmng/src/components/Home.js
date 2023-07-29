@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import { FaEdit, FaTrash, FaCalendarAlt } from 'react-icons/fa';  
 import axios from "axios";
 import { SearchContext } from "../context/SearchState";
 
@@ -58,24 +58,24 @@ export default function Home() {
       {filteredEmployees.length === 0 ? (
         <p>No employees found.</p>
       ) : (
-        <table className="table ttable-light shadow-lg p-3 mb-5  rounded">
+        <table className="table ttable-light shadow-lg p-3 mb-5  rounded ">
           <thead className="tablebgcolor">
-            <tr>
-              <th scope="col">Sr.No</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Email</th>
-              <th scope="col">Action</th>
+            <tr >
+              <th style={{border:'none'}} scope="col">Sr.No</th>
+              <th style={{border:'none'}} scope="col">First</th>
+              <th style={{border:'none'}} scope="col">Last</th>
+              <th style={{border:'none'}} scope="col">Email</th>
+              <th style={{border:'none'}} scope="col">Action</th>
             </tr>
           </thead>
           <tbody className="tablebgcolor" >
             {filteredEmployees.map((emp, index) => (
               <tr key={emp.id}>
-                <th scope="row">{index + 1}</th>
-                <td>{emp.fName}</td>
-                <td>{emp.lName}</td>
-                <td>{emp.mail}</td>
-                <td>
+                <th scope="row" style={{border:'none'}}>{index + 1}</th>
+                <td style={{border:'none'}}>{emp.fName}</td>
+                <td style={{border:'none'}}>{emp.lName}</td>
+                <td style={{border:'none'}}>{emp.mail}</td>
+                <td style={{border:'none'}}>
                   <Link
                     to={`/update/${emp.id}`}
                     className="btn my-2 mx-2" style={{
@@ -102,6 +102,20 @@ export default function Home() {
                   >
                     <FaTrash className="mr-1" />
                   </button>
+                  <Link
+                    to={`/attendance/${emp.id}`} 
+                    className="btn my-2 mx-2"
+                    style={{
+                      background: 'none',
+                      color: '#194a82',
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontSize: '19px',
+                    }}
+                    role="button"
+                  >
+                    <FaCalendarAlt className="mr-1" />
+                  </Link>
                 </td>
               </tr>
             ))}

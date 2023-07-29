@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminLogin from './components/AdminLogin';
 import { CookiesProvider } from 'react-cookie';
 import EmployeeInfo from './components/EmployeeInfo';
+import Calendar from './components/Calendar'
 import Cookies from 'js-cookie';
 import axios from 'axios';
 //import EmployeeLogin from './components/EmployeeLogin';
@@ -39,7 +40,7 @@ export default function App() {
       // }
     }
 
-  },[]);
+  }, []);
 
   const fetchdata = async () => {
     const employeeId = Cookies.get('employeeToken');
@@ -70,13 +71,13 @@ export default function App() {
   }
 
   const updateProjects = (updatedProjects) => {
-    //setProjects(updatedProjects);
+    setProjects(updatedProjects);
   };
 
   const handleAdminLogin = (login) => {
     setIsAdminLogin(login);
     if (login) {
-      Cookies.set('adminToken', 'adminloggedin', { path: '/' });
+      Cookies.set('adminToken', 'adminloggedin', { expires: 1 });
     }
   };
 
@@ -120,7 +121,7 @@ export default function App() {
               <Route exact path="/" element={<AdminLogin handleAdminLogin={handleAdminLogin} handleEmployeeLogin={handleEmployeeLogin} />} />
               {/* <Route
                 path="/employee-login"
-                element={<EmployeeLogin handleEmployeeLogin={handleEmployeeLogin} />}
+                element={<EmployeeLogin handleEmployeeLogin={handleEmployeeLogin}/>}
               />*/}
             </Routes>
           </>
@@ -145,6 +146,12 @@ export default function App() {
                 element={<AddEmployee projects={projects} setProjects={setProjects} />}
               />
               <Route exact path="/update/:id" element={<UpdateEmployee projects={projects} />} />
+              <Route
+                exact
+                path="/attendance/:id"
+                element={<Calendar />}
+              />
+
               <Route
                 exact path="/projects"
                 element={<Project projects={projects} setProjects={setProjects} updateProjects={updateProjects} />}

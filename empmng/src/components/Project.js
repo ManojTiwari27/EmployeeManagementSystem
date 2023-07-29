@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaEye } from 'react-icons/fa';
 import axios from 'axios';
 
-export default function Projects({ projects , updateProjects}) {
+export default function Projects({ projects, updateProjects }) {
   const [showModal, setShowModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [employees, setEmployees] = useState([]);
@@ -66,7 +66,7 @@ export default function Projects({ projects , updateProjects}) {
             <input style={containerStyle} type="text" value={addedproject} onChange={(e) => { setaddedProject(e.target.value); }} className="form-control" id="projectname" placeholder="Enter project name" />
           </div>
           <div className="text-center my-3">
-            <button type="submit" onClick={handleAdd} className="btn btn" style={{backgroundColor:'#194a82', color:'white'}}>Add</button>
+            <button type="submit" onClick={handleAdd} className="btn btn" style={{ backgroundColor: '#194a82', color: 'white' }}>Add</button>
           </div>
 
         </form>
@@ -81,7 +81,7 @@ export default function Projects({ projects , updateProjects}) {
         <tbody>
           {projects.map((project) => (
             <tr key={project.id}>
-              <td>{project.name}</td>
+              <td style={{ textAlign: 'left'}}>{project.name}</td>
               <td>
                 <button className="btn my-2 mx-2" style={{
                   background: 'none',
