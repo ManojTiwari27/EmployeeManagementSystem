@@ -36,7 +36,7 @@ router.get('/getprojects', async(req,res)=>{
     })
 })
 
-router.get('/employee-info/:id', (req, res) => {
+router.get('/employee-info/:id', (req,res) => {
     const employeeId = req.params.id;
   
     const sqlFindEmployee = 'SELECT * FROM employees WHERE id = ?';
@@ -65,5 +65,33 @@ router.get('/employee-info/:id', (req, res) => {
       }
     });
   });
+
+  router.get('/getleaverequests',async(req,res)=>{
+    const sqlGetLeaves = 'SELECT * from leaves'
+    db.query(sqlGetLeaves,(err,result)=>{
+      if(err){
+        console.log(err)
+        res.json({success:false,message:'error getting data'})
+      }
+      else{
+        res.send(result);
+      }
+    })
+
+  })
+  router.get('/getleaverequests/:id',async(req,res)=>{
+    const id =req.params.id
+    const sqlGetLeaves = 'SELECT * from leaves WHERE id = ?'
+    db.query(sqlGetLeaves, [id] ,(err,result)=>{
+      if(err){
+        console.log(err)
+        res.json({success:false,message:'error getting data'})
+      }
+      else{
+        res.send(result);
+      }
+    })
+
+  })
 
 module.exports = router

@@ -42,6 +42,17 @@ router.post('/insertprojectdata', async (req, res) => {
 
 })
 
-
+router.post('/insertleavesdata',async(req,res)=>{
+    const {id,fName,lName,reason}= req.body
+    const sqlInsertLeaves = 'INSERT INTO leaves (id,fName,lName,reason) VALUES (?,?,?,?)'
+    db.query(sqlInsertLeaves,[id,fName,lName,reason],(err,result)=>{
+        if(err){
+            console.log(err);
+            res.json({success:false,message:'error Adding data'})
+        }else{
+            res.json({success:true,message:'Your Request Has Been Sended to higher Authorities...'})
+        }
+    })
+})
 
 module.exports = router

@@ -11,6 +11,8 @@ import EmployeeInfo from './components/EmployeeInfo';
 import Calendar from './components/Calendar'
 import Cookies from 'js-cookie';
 import axios from 'axios';
+import EmployeeLeaveRequest from './components/EmployeeLeaveRequest';
+import AdminLeaveRequest from './components/AdminLeaveRequest';
 //import EmployeeLogin from './components/EmployeeLogin';
 
 export default function App() {
@@ -20,10 +22,9 @@ export default function App() {
   const [empprojectinfo, setempprojectInfo] = useState('')
   const [projects, setProjects] = useState([]);
 
-
   useEffect(() => {
     const savedAdminToken = Cookies.get('adminToken');
-    if (savedAdminToken === 'adminloggedin') {
+    if (savedAdminToken === 'adminloggedin'){
       setIsAdminLogin(true);
     }
     const savedEmployeeToken = Cookies.get('employeeToken');
@@ -39,7 +40,6 @@ export default function App() {
       //   setempprojectInfo(JSON.parse(storedEmployeeProjectInfo));
       // }
     }
-
   }, []);
 
   const fetchdata = async () => {
@@ -107,8 +107,8 @@ export default function App() {
     setIsEmployeeLogin(false);
     Cookies.remove('employeeToken', { path: '/' });
     Cookies.remove('employeeTokenone', { path: '/' });
-    localStorage.removeItem('employeeInfo');
-    localStorage.removeItem('employeeProjectInfo');
+    // localStorage.removeItem('employeeInfo');
+    // localStorage.removeItem('employeeProjectInfo');
   };
 
   return (
@@ -132,6 +132,7 @@ export default function App() {
               <Routes>
                 <Route exact path='/' element={<EmployeeInfo empInfo={empinfo} empprojectinfo={empprojectinfo} handleEmployeeLogout={handleEmployeeLogout} />} />
                 <Route exact path="/update/:id" element={<UpdateEmployee projects={projects} updateEmployeeInfo={updateEmployeeInfo} empinfo={empinfo} isEmployeeLogin={isEmployeeLogin} />} />
+                <Route exact path='/leaverequest' element={ <EmployeeLeaveRequest empInfo={empinfo} setempInfo={setempInfo}/>}/>
               </Routes>
             </>
           )
@@ -140,7 +141,8 @@ export default function App() {
           <>
             <Navbar handleAdminLogout={handleAdminLogout} />
             <Routes>
-              <Route exact path="/" element={<Home />} />
+           
+              <Route exact path="/" element={<Home/>} />
               <Route
                 exact path="/add"
                 element={<AddEmployee projects={projects} setProjects={setProjects} />}
@@ -155,6 +157,11 @@ export default function App() {
               <Route
                 exact path="/projects"
                 element={<Project projects={projects} setProjects={setProjects} updateProjects={updateProjects} />}
+              />
+              
+              <Route
+                exact path="/leaves"
+                element={<AdminLeaveRequest/>}
               />
             </Routes>
           </>

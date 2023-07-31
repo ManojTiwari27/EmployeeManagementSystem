@@ -22,9 +22,13 @@ export default function EmployeeInfo({ empInfo, empprojectinfo, handleEmployeeLo
     return (
 
         <div className='bgcolor'>
+
             <div className="container page">
                 <div className="d-flex justify-content-end mb-3">
-                    <button className="button mt-5" onClick={handleEmployeeLogout}>
+                    <Link to="/leaverequest" className="button mt-5 mr-3 mx-2">
+                        Leave Request
+                    </Link>
+                    <button className="button mt-5 mx-2" onClick={handleEmployeeLogout}>
                         Logout
                     </button>
                 </div>

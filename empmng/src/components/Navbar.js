@@ -80,6 +80,15 @@ export default function Navbar({ handleAdminLogout }) {
             </Link>
           </li>
           <li className="nav-item">
+            <Link
+              className={`nav-link btn btn-outline-light ${location.pathname === '/leaves' ? 'active' : ''
+                }`}
+              to="/leaves"
+            >
+              Leaves
+            </Link>
+          </li>
+          <li className="nav-item">
             <button
               className="nav-link btn btn-outline-light custom-margin py-2"
               onClick={handleLogout}

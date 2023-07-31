@@ -81,7 +81,7 @@ export default function Projects({ projects, updateProjects }) {
         <tbody>
           {projects.map((project) => (
             <tr key={project.id}>
-              <td style={{ textAlign: 'left'}}>{project.name}</td>
+              <td style={{ textAlign: 'left' }}>{project.name}</td>
               <td>
                 <button className="btn my-2 mx-2" style={{
                   background: 'none',

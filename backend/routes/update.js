@@ -17,4 +17,31 @@ router.put('/updateuser/:id', async (req, res) => {
 });
 
 
+router.put("/approveleave/:id", async (req, res) => {
+    const leaveId = req.params.id;
+    const sqlUpdateLeaveStatus = 'UPDATE leaves SET status = "approved" WHERE id = ?';
+    db.query(sqlUpdateLeaveStatus, [leaveId], (err, result) => {
+      if (err) {
+        console.log(err);
+        res.json({ success: false, message: "Error updating leave status" });
+      } else {
+        res.json({ success: true, message: "Leave request approved successfully" });
+      }
+    });
+  });
+  
+  router.put("/rejectleave/:id", async (req, res) => {
+    const leaveId = req.params.id;
+    const sqlUpdateLeaveStatus = 'UPDATE leaves SET status = "rejected" WHERE id = ?';
+    db.query(sqlUpdateLeaveStatus, [leaveId], (err, result) => {
+      if (err) {
+        console.log(err);
+        res.json({ success: false, message: "Error updating leave status" });
+      } else {
+        res.json({ success: true, message: "Leave request rejected successfully" });
+      }
+    });
+  });
+  
+
 module.exports = router
